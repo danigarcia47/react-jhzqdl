@@ -11,7 +11,26 @@ class Coches extends React.Component {
       <div className="main-site">
         <h1>Coches</h1>
         <Table responsive>
-
+        <thead>
+            <tr>
+              <th>{TitulosTablaCoches.id}</th>
+              <th>{TitulosTablaCoches.field1}</th>
+              <th>{TitulosTablaCoches.field2}</th>
+              <th>{TitulosTablaCoches.field3}</th>
+            </tr>
+          </thead>
+          <tbody>              
+            {DatosTablaCoches.map((item) => {
+              return (
+                <tr>  
+                  <td>{item.matricula}</td>
+                  <td>{item.marca}</td>
+                  <td>{item.modelo}</td>
+                  <td>{item.color}</td>
+                </tr>
+              );
+            })}                              
+          </tbody>
         </Table>
       </div>
     )
