@@ -56,8 +56,11 @@ class F1 extends React.Component {
         </Container>
       </div>
     );
+    
+    function manejador(){
+    document.getElementById("demo").addEventListener("click",mostrarPiloto);
+    }
 
-    document.getElementById("demo").onclick = function() {mostrarPiloto()};
     function mostrarPiloto(){
       if(item.nombre == "Fernando Alonso"){
         valor = 0;
