@@ -1,0 +1,55 @@
+export const TitulosF1 = {
+  id: 'Codigo',
+  field1: 'Nombre',
+  field2: 'Escudería',
+  field3: 'Victorias',
+  field4: 'Titulos',
+};
+
+export const DatosTablaF1 = [
+  {
+    id: 'FA14',
+    nombre: 'Fernando Alonso',
+    escuderia: 'Alpine F1 Team',
+    victorias: '32',
+    titulos: '2',
+    imagen: 'https://static.motor.es/f1/fichas/contenido/fernando-alonso/fernando-alonso2021_1617620146.jpg',
+    comentario: '"GP2 Engine. ARGH."',
+  },
+  {
+    id: 'LH44',
+    nombre: 'Lewis Hamilton',
+    escuderia: 'Mercedes AMG Petronas F1 Team',
+    victorias: '103',
+    titulos: '7',
+    imagen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Lewis_Hamilton_2016_Malaysia_2.jpg/400px-Lewis_Hamilton_2016_Malaysia_2.jpg',
+    comentario: '"Bono, my tyres are gone."',
+  },
+  {
+    id: 'SV5',
+    nombre: 'Sebastian Vettel',
+    escuderia: 'Aston Martin Cognizant F1',
+    victorias: '53',
+    titulos: '4',
+    imagen: 'https://www.f1-fansite.com/wp-content/uploads/2021/04/Sebastian-Vettel-portrait.jpg',
+    comentario: '"Multi21 Seb..."',
+  },
+  {
+    id: 'KR7',
+    nombre: 'Kimi Räikkönen',
+    escuderia: ' - ',
+    victorias: '21',
+    titulos: '1',
+    imagen: 'https://www.mundodeportivo.com/files/content_image_mobile_filter/uploads/2020/07/02/60e73bd454372.jpeg',
+    comentario: '"Just leave me alone."',
+  },
+  {
+    id: 'CS55',
+    nombre: 'Carlos Sainz Jr.',
+    escuderia: 'Scuderia Ferrari',
+    victorias: '0',
+    titulos: '0',
+    imagen: 'https://phantom-marca.unidadeditorial.es/44fe14578833cb31cb5ec549c07eb430/resize/1320/f/jpg/assets/multimedia/imagenes/2021/12/20/16400283865118.jpg',
+    comentario: '"Smoooooooth Operatoooooooor"',
+  },
+]

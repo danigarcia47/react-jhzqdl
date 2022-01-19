@@ -1,10 +1,12 @@
 import React from 'react';
+import {Table} from 'react-bootstrap';
 import { Card, Container, Table, Row, Col } from 'react-bootstrap';
 import { TitulosTablaCoches, DatosTablaCoches } from '../data/DatosCoches';
 class Coches extends React.Component {
   constructor(props) {
     super(props);
   }
+
   render() {
     return (
       <div className="main-site">
