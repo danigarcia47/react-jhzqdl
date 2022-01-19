@@ -6,6 +6,12 @@ import { TitulosF1, DatosTablaF1} from '../data/DatosF1';
 class F1 extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      img: '',
+      nom: '',
+      esc: '',
+      com: ''
+    }
   }
 
   mostrarPiloto(item){
@@ -53,6 +59,7 @@ class F1 extends React.Component {
                 <Card.Body>
                   <Card.Title>
                     {this.state.nom}
+                    <p/>
                     {this.state.esc}
                   </Card.Title>
                   <Card.Text>
