@@ -28,7 +28,7 @@ class F1 extends React.Component {
                   {DatosTablaF1.map((item) => {
                     return (
                       <tr>
-                        <td>{item.nombre}</td>
+                        <td id="demo">{item.nombre}</td>
                         <td>{item.escuderia}</td>
                         <td>{item.victorias}</td>
                         <td>{item.titulos}</td>
@@ -44,7 +44,6 @@ class F1 extends React.Component {
                 <Card.Body>
                   <Card.Title>
                     {DatosTablaF1[0].nombre}
-                    <p />
                     {DatosTablaF1[0].escuderia}
                   </Card.Title>
                   <Card.Text>
@@ -57,6 +56,27 @@ class F1 extends React.Component {
         </Container>
       </div>
     );
+
+    document.getElementById("demo").onclick = function() {mostrarPiloto()};
+    function mostrarPiloto(){
+      if(item.nombre == "Fernando Alonso"){
+        valor = 0;
+      }else{
+        if(item.nombre == "Lewis Hamilton"){
+          valor = 1;
+        }else{
+          if(item.nombre == "Sebastian Vettel"){
+            valor = 2;
+          }else{
+            if(item.nombre == "Kimi Räikkönen"){
+              valor = 3;
+            }else{
+              valor = 4;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
