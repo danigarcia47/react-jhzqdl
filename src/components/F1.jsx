@@ -38,6 +38,21 @@ class F1 extends React.Component {
                 </tbody>
               </Table>
             </Col>
+            <Col lg={4} md={6}>
+              <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={DatosTablaF1[0].imagen} />
+                <Card.Body>
+                  <Card.Title>
+                    {DatosTablaF1[0].nombre}
+                    <p />
+                    {DatosTablaF1[0].escuderia}
+                  </Card.Title>
+                  <Card.Text>
+                    Frase célebre: {DatosTablaF1[0].comentario}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </Col>
           </Row>
         </Container>
       </div>
