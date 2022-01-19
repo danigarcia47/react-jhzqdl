@@ -8,6 +8,15 @@ class F1 extends React.Component {
     super(props);
   }
 
+  mostrarPiloto(item){
+    this.setState({
+      img: item.imagen,
+      nom: item.nombre,
+      esc: item.escuderia,
+      com: item.comentario,
+    });
+  }
+
   render(){
     return (
       <div className="main-site">
@@ -27,8 +36,8 @@ class F1 extends React.Component {
                 <tbody>
                   {DatosTablaF1.map((item) => {
                     return (
-                      <tr>
-                        <td id="demo">{item.nombre}</td>
+                      <tr onClick={() => this.mostrarPiloto(item)}>
+                        <td>{item.nombre}</td>
                         <td>{item.escuderia}</td>
                         <td>{item.victorias}</td>
                         <td>{item.titulos}</td>
@@ -40,14 +49,14 @@ class F1 extends React.Component {
             </Col>
             <Col lg={4} md={6}>
               <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={DatosTablaF1[0].imagen} />
+                <Card.Img variant="top" src={this.state.img} />
                 <Card.Body>
                   <Card.Title>
-                    {DatosTablaF1[0].nombre}
-                    {DatosTablaF1[0].escuderia}
+                    {this.state.nom}
+                    {this.state.esc}
                   </Card.Title>
                   <Card.Text>
-                    Frase célebre: {DatosTablaF1[0].comentario}
+                    Frase célebre: {this.state.com}
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -56,30 +65,6 @@ class F1 extends React.Component {
         </Container>
       </div>
     );
-    
-    function manejador(){
-    document.getElementById("demo").addEventListener("click",mostrarPiloto);
-    }
-
-    function mostrarPiloto(){
-      if(item.nombre == "Fernando Alonso"){
-        valor = 0;
-      }else{
-        if(item.nombre == "Lewis Hamilton"){
-          valor = 1;
-        }else{
-          if(item.nombre == "Sebastian Vettel"){
-            valor = 2;
-          }else{
-            if(item.nombre == "Kimi Räikkönen"){
-              valor = 3;
-            }else{
-              valor = 4;
-            }
-          }
-        }
-      }
-    }
   }
 }
 
