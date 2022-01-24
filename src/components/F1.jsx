@@ -1,5 +1,4 @@
 import React from 'react';
-import {Table} from 'react-bootstrap';
 import { Card, Container, Table, Row, Col } from 'react-bootstrap';
 import { TitulosF1, DatosTablaF1} from '../data/DatosF1';
 
