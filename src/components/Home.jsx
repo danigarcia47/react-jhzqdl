@@ -6,11 +6,20 @@ class Home extends React.Component {
     super(props);
     this.state = {user: '' , password: '' };
     this.login = this.login.bind(this);
+    this.inputUser = React.createRef();
+    this.inputPass = React.createRef();
   }
 
   login() {
-    this.setState({user: `${document.getElementById("user").value}`, password: `${document.getElementById("pass").value}`});
-    console.log(`${this.state.user} ha hecho click`);
+    this.setState({
+      user: this.inputUser.current.value,
+      password: this.inputPass.current.value,
+    });
+  }
+
+  componentDidMount(){
+    this.setState({user:localStorage.getItem('user'), password:localStorage.getItem('password'),
+  })
   }
 
   render(){
@@ -29,12 +38,12 @@ class Home extends React.Component {
             <Form>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Nombre de usuario o email: </Form.Label>
-                <Form.Control id= "user" type="email" placeholder="Usuario"/>
+                <Form.Control ref={this.inputUser} type="email" placeholder="Usuario"/>
               </Form.Group>
   
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Contraseña: </Form.Label>
-                <Form.Control id= "pass" type="password" placeholder="Contraseña" />
+                <Form.Control ref={this.inputPass} type="password" placeholder="Contraseña" />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Recordarme" />
@@ -45,6 +54,10 @@ class Home extends React.Component {
         </div>
       );
     }
+  }
+  componentWillUnmount(){
+    localStorage.setItem('user', this.state.user);
+    localStorage.setItem('pass', this.state.password);
   }
 }
 
