@@ -17,20 +17,19 @@ class Home extends React.Component {
     });
   }
 
+  recargar() {
+    localStorage.removeItem('user'),
+    localStorage.removeItem('pass');
+    location.reload();
+  }
+
   componentDidMount(){
     this.setState({user:localStorage.getItem('user'), password:localStorage.getItem('password'),
   })
   }
 
   render(){
-
-    if (this.state !== null && this.state.user !== null && this.state.user !== ''){
-      return (
-      <div className="main-site">
-        <h1>Bienvenido {this.state.user}!</h1>
-      </div>
-      );
-    } else {
+    if (this.state.user == null && this.state.password == null){
       return (
         <div classname="main-site">
           <h1>Bienvenido!</h1>
@@ -40,7 +39,6 @@ class Home extends React.Component {
                 <Form.Label>Nombre de usuario o email: </Form.Label>
                 <Form.Control ref={this.inputUser} type="email" placeholder="Usuario"/>
               </Form.Group>
-  
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Contraseña: </Form.Label>
                 <Form.Control ref={this.inputPass} type="password" placeholder="Contraseña" />
@@ -50,6 +48,16 @@ class Home extends React.Component {
               </Form.Group>
               <Button variant="primary" type="button" onClick={this.login}> Login </Button>
             </Form>
+          </Container>
+        </div>
+      );
+    } else {
+      return(
+        <div>
+          <Container>
+          <h1>Bienvenido {this.state.user}</h1>
+          <p/>
+          <Button variant="primary" type="button" onClick={this.recargar}> Cerrar Sesion </Button>
           </Container>
         </div>
       );
