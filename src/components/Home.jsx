@@ -52,15 +52,39 @@ class Home extends React.Component {
         </div>
       );
     } else {
-      return(
-        <div>
+      if(this.state.user == 'Dani' && this.state.password == '12345' ){
+        return(
+          <div>
+            <Container>
+            <h1>Bienvenido {this.state.user}</h1>
+            <p/>
+            <Button variant="primary" type="button" onClick={this.recargar}> Cerrar Sesion</Button>
+            </Container>
+          </div>
+        );
+      } else {
+        return(
+          <div classname="main-site">
+          <h1>Credenciales erroneas, vuelva a intentarlo</h1>
           <Container>
-          <h1>Bienvenido {this.state.user}</h1>
-          <p/>
-          <Button variant="primary" type="button" onClick={this.recargar}> Cerrar Sesion </Button>
+            <Form>
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Nombre de usuario o email: </Form.Label>
+                <Form.Control ref={this.inputUser} type="email" placeholder="Usuario"/>
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Contraseña: </Form.Label>
+                <Form.Control ref={this.inputPass} type="password" placeholder="Contraseña" />
+              </Form.Group>
+              <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <Form.Check type="checkbox" label="Recordarme" />
+              </Form.Group>
+              <Button variant="primary" type="button" onClick={this.login}> Login </Button>
+            </Form>
           </Container>
         </div>
-      );
+        );
+      }
     }
   }
   componentWillUnmount(){
