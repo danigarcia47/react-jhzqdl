@@ -52,7 +52,7 @@ class Home extends React.Component {
         </div>
       );
     } else {
-      if(this.state.user == 'Dani' && this.state.password == '12345' ){
+      if(localStorage.getItem('user') == 'Dani' && localStorage.getItem('pass') == '12345' ){
         return(
           <div>
             <Container>
