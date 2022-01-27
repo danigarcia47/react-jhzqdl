@@ -63,34 +63,25 @@ class Home extends React.Component {
           </div>
         );
       } else {
-        return(
-          <div classname="main-site">
-          <h1>Credenciales erroneas, vuelva a intentarlo</h1>
-          <Container>
-            <Form>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Nombre de usuario o email: </Form.Label>
-                <Form.Control ref={this.inputUser} type="email" placeholder="Usuario"/>
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Contraseña: </Form.Label>
-                <Form.Control ref={this.inputPass} type="password" placeholder="Contraseña" />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Recordarme" />
-              </Form.Group>
-              <Button variant="primary" type="button" onClick={this.login}> Login </Button>
-            </Form>
-          </Container>
-        </div>
-        );
+          return(
+            <div classname="main-site">
+            <h1>Credenciales erroneas, vuelva a intentarlo</h1>
+            <Container>
+              <Form>
+                <Button variant="primary" type="button" onClick={this.recargar}> Volver a Home </Button>
+              </Form>
+            </Container>
+          </div>
+          );
+        }
+
       }
     }
-  }
+  
   componentWillUnmount(){
     localStorage.setItem('user', this.state.user);
     localStorage.setItem('pass', this.state.password);
   }
-}
 
+}
 export default Home;
