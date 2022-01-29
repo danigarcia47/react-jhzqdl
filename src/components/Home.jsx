@@ -29,18 +29,47 @@ class Home extends React.Component {
   }
 
   render() {
-    if (
-      this.state !== null &&
-      this.state.user !== null &&
-      this.state.user !== ''
-    ) {
-      return (
-        <div className="main-site">
-          <h1>Bienvenido {this.state.user}!</h1>
-          <p/>
-          <Button variant="primary" type="button" onClick={this.recargar}>Cerrar Sesión</Button>
-        </div>
-      );
+    if (this.state !== null && this.state.user !== null && this.state.user !== '') {
+      if (this.state !== null && this.state.user !== 'Dani' && this.state.password !== '12345'){
+        return (
+          <div className="main-site">
+            <h1>Usuario no encontrado</h1>
+            <p/>
+            <h2>Por favor, vuelva a intentarlo</h2>
+            <Button variant="primary" type="button" onClick={this.recargar}>Volver a Home</Button>
+          </div>
+        );
+      }else {
+        if (this.state !== null && this.state.user == 'Dani' && this.state.password !== '12345'){
+          return (
+            <div className="main-site">
+              <h1>Usuario no encontrado</h1>
+              <p/>
+              <h2>Por favor, vuelva a intentarlo</h2>
+              <Button variant="primary" type="button" onClick={this.recargar}>Volver a Home</Button>
+            </div>
+          );
+        }else{
+          if (this.state !== null && this.state.user !== 'Dani' && this.state.password == '12345'){
+            return (
+              <div className="main-site">
+                <h1>Usuario no encontrado</h1>
+                <p/>
+                <h2>Por favor, vuelva a intentarlo</h2>
+                <Button variant="primary" type="button" onClick={this.recargar}>Volver a Home</Button>
+              </div>
+            );
+          }else{
+            return (
+              <div className="main-site">
+                <h1>Bienvenido {this.state.user}!</h1>
+                <p/>
+                <Button variant="primary" type="button" onClick={this.recargar}>Cerrar Sesión</Button>
+              </div>
+            );
+          }
+        }
+      }
     } else {
       return (
         <div className="main-site">
