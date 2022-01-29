@@ -40,7 +40,7 @@ class Home extends React.Component {
           </div>
         );
       }else {
-        if (this.state !== null && this.state.user == 'Dani' && this.state.password !== '12345'){
+        if (this.state == null && this.state.user == 'Dani' && this.state.password !== '12345'){
           return (
             <div className="main-site">
               <h1>Usuario no encontrado</h1>
