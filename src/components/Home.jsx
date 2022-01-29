@@ -7,13 +7,13 @@ class Home extends React.Component {
     this.state = {user: '' , password: '' };
     this.login = this.login.bind(this);
     this.inputUser = React.createRef();
-    this.inputPass = React.createRef();
+    this.inputPassword = React.createRef();
   }
 
   login() {
     this.setState({
       user: this.inputUser.current.value,
-      password: this.inputPass.current.value,
+      password: this.inputPassword.current.value,
     });
   }
 
@@ -28,55 +28,54 @@ class Home extends React.Component {
   })
   }
 
-  render(){
-    if (this.state.user == null && this.state.password == null){
+  render() {
+    if (
+      this.state !== null &&
+      this.state.user !== null &&
+      this.state.user !== ''
+    ) {
       return (
-        <div classname="main-site">
+        <div className="main-site">
+          <h1>Bienvenido {this.state.user}!</h1>
+          <p/>
+          <Button variant="primary" type="button" onClick={this.recargar}>Cerrar Sesión</Button>
+        </div>
+      );
+    } else {
+      return (
+        <div className="main-site">
           <h1>Bienvenido!</h1>
           <Container>
             <Form>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Nombre de usuario o email: </Form.Label>
-                <Form.Control ref={this.inputUser} type="email" placeholder="Usuario"/>
+                <Form.Control
+                  type="email"
+                  placeholder="Usuario"
+                  ref={this.inputUser}
+                />
               </Form.Group>
+
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Contraseña: </Form.Label>
-                <Form.Control ref={this.inputPass} type="password" placeholder="Contraseña" />
+                <Form.Control
+                  type="password"
+                  placeholder="Contraseña"
+                  ref={this.inputPassword}
+                />
               </Form.Group>
               <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Recordarme" />
               </Form.Group>
-              <Button variant="primary" type="button" onClick={this.login}> Login </Button>
+              <Button variant="primary" type="button" onClick={this.login}>
+                Login
+              </Button>
             </Form>
           </Container>
         </div>
       );
-    } else {
-      if(localStorage.getItem('user') == 'Dani' && localStorage.getItem('pass') == '12345' ){
-        return(
-          <div>
-            <Container>
-            <h1>Bienvenido {this.state.user}</h1>
-            <p/>
-            <Button variant="primary" type="button" onClick={this.recargar}> Cerrar Sesion</Button>
-            </Container>
-          </div>
-        );
-      } else {
-          return(
-            <div classname="main-site">
-            <h1>Credenciales erroneas, vuelva a intentarlo</h1>
-            <Container>
-              <Form>
-                <Button variant="primary" type="button" onClick={this.recargar}> Volver a Home </Button>
-              </Form>
-            </Container>
-          </div>
-          );
-        }
-
-      }
     }
+  }
   
   componentWillUnmount(){
     localStorage.setItem('user', this.state.user);
