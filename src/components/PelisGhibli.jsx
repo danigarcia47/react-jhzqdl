@@ -1,7 +1,7 @@
 import React from 'react';
 import uuid from 'react-uuid';
 import { Card, Container, Table, Row, Col } from 'react-bootstrap';
-import CardPeli from './CardPeli';
+/*import CardPeli from './CardPeli';*/
 
 import './table_component.css';
 
@@ -64,7 +64,7 @@ class PelisGhibli extends React.Component {
                     <p/>
                     Director: {this.state.selectedItem.director}
                     <p/>
-                    Argumento: {this.state.selectedItem.descripcion}
+                    Argumento: {this.state.selectedItem.description}
                   </Card.Text>
                 </Card.Body>
               </Card>
