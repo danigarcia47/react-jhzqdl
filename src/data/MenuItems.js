@@ -3,6 +3,7 @@ import { PaginaListas } from '../components/PaginaListas';
 import { Perfil } from '../components/Perfil';
 import  Coches  from '../components/Coches';
 import F1 from '../components/F1';
+import PelisGhibli from '../components/PelisGhibli';
 
 export const MenuItems = [
   { 
@@ -34,6 +35,12 @@ export const MenuItems = [
     path:'/f1',
     title: 'F1',
     component: F1,
+  },
+  {
+    id: 6,
+    path:'/pelisghibli',
+    title: 'PelisGhibli',
+    component: PelisGhibli,
   }
 ];
 
