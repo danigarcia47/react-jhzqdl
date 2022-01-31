@@ -8,21 +8,21 @@ class CardPeli extends React.Component {
   }
 
   render() {
-    if(props.data !== null){
+    if(this.props.data !== null){
       return (
         <Card style={{ width: '18 rem' }}>
-        <Card.Img variant="top" src={props.data.image} />
+        <Card.Img variant="top" src={this.data.image} />
         <Card.Body>
           <Card.Title>
-            {props.data.title}
+            {this.data.title}
           </Card.Title>
           <Card.Text>
-            Puntuacion: {props.data.rt_score}
+            Puntuacion: {this.data.rt_score}
             <p/>
             Director:
-            {props.data.director}
+            {this.data.director}
             <p/>
-            Argumento:{props.data.description}
+            Argumento:{this.data.description}
           </Card.Text>
         </Card.Body>
     </Card>
@@ -34,3 +34,4 @@ class CardPeli extends React.Component {
     }
   }
 }
+export default CardPeli;
