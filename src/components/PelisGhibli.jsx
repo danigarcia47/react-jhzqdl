@@ -1,6 +1,6 @@
 import React from 'react';
 import uuid from 'react-build';
-import { Card, Container, Table, Row, Col } from 'react-bootstrap';
+import { Container, Table, Row, Col } from 'react-bootstrap';
 import CardPeli from './CardPeli';
 
 import './table_component.css';
@@ -55,22 +55,7 @@ class PelisGhibli extends React.Component {
               </Table>
             </Col>
             <Col lg={4} md={6}>
-              <Card style={{ width: '18 rem' }}>
-                  <Card.Img variant="top" src={this.state.selectedItem.image} />
-                  <Card.Body>
-                    <Card.Title>
-                      {this.state.selectedItem.title}
-                    </Card.Title>
-                    <Card.Text>
-                      Puntuacion: {this.state.selectedItem.rt_score}
-                      <p/>
-                      Director:
-                      {this.state.selectedItem.director}
-                      <p/>
-                      Argumento:{this.state.selectedItem.description}
-                    </Card.Text>
-                  </Card.Body>
-              </Card>
+                  <CardPeli data={this.state.selectedItem}/>
             </Col>
           </Row>
         </Container>
