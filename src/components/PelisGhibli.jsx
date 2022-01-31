@@ -3,23 +3,22 @@ import uuid from 'react-build';
 import { Card, Container, Table, Row, Col } from 'react-bootstrap';
 import CardPeli from './CardPeli';
 
-
 import './table_component.css';
 
 class PelisGhibli extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {selectedItem: '', tableData: [] };
+    this.state = { selectedItem: '', tableData: [] };
   }
-  
+
   changeSelected = (item) => {
-    this.setState({ selectedItem: item});
+    this.setState({ selectedItem: item });
   };
 
-  async componentDidMount(){
-   const response = await fetch('https://ghibliapi.herokuapp.com/films');
-   const responseData = await response.json();
-   this.setState({tableData: responseData, selectedItem: responseData[0] });
+  async componentDidMount() {
+    const response = await fetch('https://ghibliapi.herokuapp.com/films');
+    const responseData = await response.json();
+    this.setState({ tableData: responseData, selectedItem: responseData[0] });
   }
 
   render() {
@@ -56,9 +55,22 @@ class PelisGhibli extends React.Component {
               </Table>
             </Col>
             <Col lg={4} md={6}>
-                <Card>
-
-                </Card>
+              <Card style={{ width: '18 rem' }}>
+                  <Card.Img variant="top" src={this.state.selectedItem.image} />
+                  <Card.Body>
+                    <Card.Title>
+                      {this.state.selectedItem.title}
+                    </Card.Title>
+                    <Card.Text>
+                      Puntuacion: {this.state.selectedItem.rt_score}
+                      <p/>
+                      Director:
+                      {this.state.selectedItem.director}
+                      <p/>
+                      Argumento:{this.state.selectedItem.description}
+                    </Card.Text>
+                  </Card.Body>
+              </Card>
             </Col>
           </Row>
         </Container>
