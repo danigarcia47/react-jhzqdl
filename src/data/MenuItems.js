@@ -4,6 +4,7 @@ import { Perfil } from '../components/Perfil';
 import  Coches  from '../components/Coches';
 import F1 from '../components/F1';
 import PelisGhibli from '../components/PelisGhibli';
+import Potter from '../components/Breaking';
 
 
 export const MenuItems = [
@@ -42,7 +43,13 @@ export const MenuItems = [
     path:'/ghibli',
     title:'Peliculas Ghibli',
     component: PelisGhibli,
-  }
+  },
+  {
+    id: 7,
+    path:'/breaking',
+    title: 'Personajes Breaking Bad',
+    component: Potter,
+  },
 ];
 
 /*
